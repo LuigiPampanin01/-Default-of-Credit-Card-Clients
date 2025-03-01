@@ -1,0 +1,15 @@
+2025-02-28 22:14:19,663 - INFO - Loading data from nyc-rolling-sales.csv
+2025-02-28 22:14:19,865 - INFO - Successfully loaded CSV file with 84548 rows.
+2025-02-28 22:14:19,866 - INFO - Starting data cleaning...
+2025-02-28 22:14:19,947 - INFO - Dropped duplicates. New dataset has 84548 rows.
+2025-02-28 22:14:20,011 - INFO - Dropped rows with missing or zero sale price. New dataset has 59759 rows.
+2025-02-28 22:14:20,041 - INFO - Dropped columns with more than 50% missing values. New dataset has 22 columns.
+2025-02-28 22:14:20,121 - INFO - Handled outliers.
+2025-02-28 22:14:20,124 - INFO - Cleaning completed. Final dataset has 51018 rows.
+2025-02-28 22:14:20,128 - INFO - Starting data transformation...
+2025-02-28 22:14:20,223 - INFO - Transformation completed.
+2025-02-28 22:14:20,224 - INFO - Connecting to database
+2025-02-28 22:14:23,214 - INFO - Data successfully saved to table 'nyc_property_sales' in database.
+2025-02-28 22:14:23,214 - INFO - Starting categorical encoding...
+2025-02-28 22:14:23,243 - INFO - Categorical encoding completed. New dataset has 40 columns.
+2025-02-28 22:14:23,772 - INFO - Cleaned data saved to nyc-rolling-sales_cleaned.csv
