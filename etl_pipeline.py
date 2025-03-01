@@ -155,11 +155,14 @@ if __name__ == "__main__":
 
     df = load_data(args.input)
     if df is not None:
-        df = clean_data(df)  # ✅ Clean first
-        df = transform_data(df)  # ✅ Then transform
+        df = clean_data(df)  
+        df = transform_data(df)  
 
         save_to_sql(df, "nyc_property_sales", args.db_url)
 
         df = encode_categorical(df)
 
         save_data(df, args.output)
+        logging.info("ETL process completed.")
+    else:
+        logging.error("ETL process failed. Check the logs for more information.")
