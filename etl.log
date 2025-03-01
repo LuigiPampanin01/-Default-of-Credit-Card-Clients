@@ -1,16 +1,23 @@
-2025-03-01 10:04:44,934 - INFO - Loading data from data/nyc-rolling-sales.csv
-2025-03-01 10:04:45,110 - INFO - Successfully loaded CSV file with 84548 rows.
-2025-03-01 10:04:45,110 - INFO - Starting data cleaning...
-2025-03-01 10:04:45,179 - INFO - Dropped duplicates. New dataset has 84548 rows.
-2025-03-01 10:04:45,240 - INFO - Dropped rows with missing or zero sale price. New dataset has 59759 rows.
-2025-03-01 10:04:45,270 - INFO - Dropped columns with more than 50% missing values. New dataset has 22 columns.
-2025-03-01 10:04:45,342 - INFO - Handled outliers.
-2025-03-01 10:04:45,344 - INFO - Cleaning completed. Final dataset has 51018 rows.
-2025-03-01 10:04:45,347 - INFO - Starting data transformation...
-2025-03-01 10:04:45,435 - INFO - Transformation completed.
-2025-03-01 10:04:45,435 - INFO - Connecting to database
-2025-03-01 10:04:48,391 - INFO - Data successfully saved to table 'nyc_property_sales' in database.
-2025-03-01 10:04:48,391 - INFO - Starting categorical encoding...
-2025-03-01 10:04:48,414 - INFO - Categorical encoding completed. New dataset has 40 columns.
-2025-03-01 10:04:48,912 - INFO - Cleaned data saved to data/nyc-rolling-sales_cleaned.csv
-2025-03-01 10:04:48,912 - INFO - ETL process completed.
+2025-03-01 18:36:40,759 - INFO - Loading data from data/nyc-rolling-sales.csv
+2025-03-01 18:36:40,944 - INFO - Successfully loaded CSV file with 84548 rows and 22 columns.
+2025-03-01 18:36:40,945 - INFO - Starting data cleaning...
+2025-03-01 18:36:40,955 - INFO - Dropped 'Unnamed: 0' column. Shape of dataset: 84548 rows and 21 columns.
+2025-03-01 18:36:41,028 - INFO - Dropped duplicates. New dataset has 83783 rows.
+2025-03-01 18:36:41,092 - INFO - Dropped rows with missing, zero, or unrealistically low sale price. New dataset has 57681 rows.
+2025-03-01 18:36:41,102 - INFO - Removed outliers. New dataset has 50393 rows.
+2025-03-01 18:36:41,129 - INFO - Dropped columns with more than 50% missing values. New dataset has 21 columns.
+2025-03-01 18:36:41,132 - INFO - Dropped columns with no useful information ['EASE-MENT', 'APARTMENT NUMBER', 'ADDRESS', 'LOT', 'BUILDING CLASS AT TIME OF SALE', 'ZIP CODE', 'NEIGHBORHOOD', 'BUILDING CLASS AT PRESENT']. New dataset has 13 columns.
+2025-03-01 18:36:41,134 - INFO - Cleaning completed. Final dataset has 50393 rows and 13 columns.
+2025-03-01 18:36:41,138 - INFO - Starting data transformation...
+2025-03-01 18:36:41,224 - INFO - Transformation completed.
+2025-03-01 18:36:41,224 - INFO - Connecting to database
+2025-03-01 18:36:43,227 - INFO - Data successfully saved to table 'nyc_property_sales' in database.
+2025-03-01 18:36:43,230 - INFO - Dropped 'TOTAL UNITS' column for redundancy.
+2025-03-01 18:36:43,230 - INFO - Starting categorical encoding...
+2025-03-01 18:36:43,236 - INFO - One-Hot encoding completed. New dataset has 15 columns.
+2025-03-01 18:36:43,256 - INFO - Ordinal encoding completed. New dataset has 15 columns.
+2025-03-01 18:36:43,271 - INFO - Extracted numerical features from SALE DATE.
+2025-03-01 18:36:43,272 - INFO - Final dataset has 16 columns after encoding.
+2025-03-01 18:36:43,272 - INFO - Final dataset shape: 50393 rows and 16 columns.
+2025-03-01 18:36:43,532 - INFO - Cleaned data saved to data/nyc-rolling-sales_cleaned.csv
+2025-03-01 18:36:43,532 - INFO - ETL process completed.
