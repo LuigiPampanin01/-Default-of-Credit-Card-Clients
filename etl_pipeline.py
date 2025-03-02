@@ -21,6 +21,7 @@ def unnamed_columns(df):
 
 def drop_duplicates(df):
     """Drop duplicate rows."""
+
     df.drop_duplicates(inplace=True)
     logging.info(f"Dropped duplicates. New dataset has {df.shape[0]} rows.")
     return df
