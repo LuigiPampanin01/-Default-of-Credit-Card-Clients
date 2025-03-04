@@ -61,8 +61,7 @@ def fix_inconsistencies(df):
     return df
 
 def drop_reduntant_columns(df):
-    red_cols = ["EASE-MENT", "APARTMENT NUMBER", "ADDRESS", "LOT",  "BUILDING CLASS AT TIME OF SALE",  # Redundant
-    "ZIP CODE", "NEIGHBORHOOD", "BUILDING CLASS AT PRESENT"]
+    red_cols = ["EASE-MENT", "APARTMENT NUMBER", "ADDRESS", "LOT",  "BUILDING CLASS AT TIME OF SALE", "NEIGHBORHOOD", "BUILDING CLASS AT PRESENT"]
     df = df.drop(red_cols, axis=1)  # Drop columns with no useful information
 
     logging.info(f'Dropped columns with no useful information {red_cols}. New dataset has {df.shape[1]} columns.')
@@ -242,6 +241,7 @@ if __name__ == "__main__":
     parser.add_argument("--input", required=True, help="Path to input file")
     parser.add_argument("--output", required=True, help="Path to output CSV file")
     parser.add_argument("--db_url", required=True, help="SQL database connection URL")
+    parser.add_argument("--output_sql_csv", required=True, help="Path to output CSV file to save the data like the data in SQL")
 
     args = parser.parse_args()
 
@@ -251,8 +251,10 @@ if __name__ == "__main__":
         df = transform_data(df)  
 
         save_to_sql(df, "nyc_property_sales", args.db_url)
+        save_data(df, args.output_sql_csv)
 
         df.drop(columns=["TOTAL UNITS"], inplace=True) # dropped for redudancy
+        df.drop(columns=["ZIP CODE"], inplace=True)
         logging.info("Dropped 'TOTAL UNITS' column for redundancy.")
 
         df = encode_categorical(df)
